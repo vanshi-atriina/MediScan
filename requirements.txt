@@ -6,4 +6,6 @@ google-cloud-vision
 opencv-python
 numpy
 google-generativeai
+pdf2image
+
 
