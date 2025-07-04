@@ -7,5 +7,6 @@ opencv-python-headless
 numpy
 google-generativeai
 pdf2image==1.17.0
+poppler-utils
 
 
