@@ -5,8 +5,7 @@ python-dotenv>=1.0.0
 google-cloud-vision
 opencv-python-headless
 numpy
-google-generativeai
 pdf2image==1.17.0
-poppler-utils
+
 
 
