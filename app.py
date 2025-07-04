@@ -35,39 +35,31 @@ def show_unified_preview(content, title, key):
             st.markdown(f"### {title}")
             
             if content['type'] == 'pdf':
-                pdf_bytes = content['pdf_bytes']
-                if not pdf_bytes:
-                    st.error("Error: PDF bytes are empty or invalid.")
-                    logging.error("PDF preview failed: Empty or invalid PDF bytes.")
+                # Convert PDF bytes to images for preview
+                try:
+                    images = pdf2image.convert_from_bytes(content['pdf_bytes'])
+                    for i, img in enumerate(images):
+                        st.image(img, caption=f"Page {i+1}", use_container_width=True)
+                except Exception as e:
+                    st.error(f"Error converting PDF for preview: {str(e)}")
+                    logging.error(f"PDF preview conversion error: {str(e)}")
                     return
                 
-                base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-                pdf_display = f"""
-                <div style="display: flex; justify-content: center;">
-                    <iframe src="data:application/pdf;base64,{base64_pdf}"
-                            width="700"
-                            height="1000"
-                            style="margin: 0 auto;"
-                            type="application/pdf">
-                    </iframe>
-                </div>
-                """
-                st.markdown(pdf_display, unsafe_allow_html=True)
-                
+                # Provide a download button for the original PDF
                 st.download_button(
                     label="📥 Download Original PDF",
-                    data=pdf_bytes,
+                    data=content['pdf_bytes'],
                     file_name=f"{title}.pdf",
                     mime="application/pdf",
                     key=f"download_pdf_{key}"
                 )
             else:
+                # Display image preview (unchanged)
                 st.image(content['image'], caption=title, use_container_width=True)
             
             if st.button("Close", key=f"close_{key}"):
                 st.session_state.show_unified_preview = None
                 st.rerun()
-
     except Exception as e:
         st.error(f"Error displaying preview: {str(e)}")
         logging.error(f"Preview error: {str(e)}")

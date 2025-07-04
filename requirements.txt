@@ -6,6 +6,6 @@ google-cloud-vision
 opencv-python-headless
 numpy
 google-generativeai
-pdf2image
+pdf2image==1.17.0
 
 
