@@ -394,7 +394,7 @@ def main():
     @media (prefers-color-scheme: dark) {
         [data-testid="stFileUploader"] > div,
         [data-testid="stFileUploader"] > div > div {
-            background: #2a2a2a !important; /* Dark background for dark mode */
+            background: white !important; /* Dark background for dark mode */
             border: 1px solid #4a4a4a !important;
         }
 
@@ -407,7 +407,7 @@ def main():
         }
 
         [data-testid="stFileUploader"] button {
-            background: #3a3a3a !important;
+            background: white !important;
             color: #d0d0d0 !important;
             border: 1px solid #5a5a5a !important;
         }
@@ -415,7 +415,7 @@ def main():
         [data-testid="stFileUploader"]:hover,
         [data-testid="stFileUploader"] button:hover,
         [data-testid="stFileUploader"] > div > div:hover {
-            background: #4a4a4a !important;
+            background: white !important;
             border-color: #6a6a6a !important;
             color: #ffffff !important;
         }
