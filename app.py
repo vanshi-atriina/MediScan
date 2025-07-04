@@ -353,14 +353,49 @@ def main():
         background: linear-gradient(to right, #3f51b5, #9c27b0) !important;
         margin: 30px 0 !important;
     }
-    /* File Uploader Styling */
+/* File Uploader Styling */
+[data-testid="stFileUploader"] > div,
+[data-testid="stFileUploader"] > div > div {
+    background: var(--background-color, #f0f2f6) !important;
+    border: 1px solid var(--border-color, #d0d4d9) !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+}
+
+[data-testid="stFileUploader"] label,
+[data-testid="stFileUploader"] .uploadInstructions,
+[data-testid="stFileUploader"] .small,
+[data-testid="stFileUploader"] .uploadedFileName,
+[data-testid="stFileUploader"] .st-emotion-cache-1aehpvj {
+    color: var(--text-color, #606060) !important;
+    opacity: 1 !important;
+    font-family: inherit !important;
+}
+
+[data-testid="stFileUploader"] button {
+    background: var(--button-bg, #ffffff) !important;
+    color: var(--button-text, #606060) !important;
+    border: 1px solid var(--border-color, #d0d4d9) !important;
+    padding: 5px 10px !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+}
+
+[data-testid="stFileUploader"]:hover,
+[data-testid="stFileUploader"] button:hover,
+[data-testid="stFileUploader"] > div > div:hover {
+    background: var(--hover-bg, #e6e8eb) !important;
+    border-color: var(--hover-border, #b0b8c1) !important;
+    color: var(--hover-text, #404040) !important;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
     [data-testid="stFileUploader"] > div,
     [data-testid="stFileUploader"] > div > div {
-        background: var(--background-color, #f0f2f6) !important;
-        border: 1px solid var(--border-color, #d0d4d9) !important;
-        padding: 10px !important;
-        box-shadow: none !important;
-        border-radius: 4px !important;
+        background: #2a2a2a !important; /* Dark background for dark mode */
+        border: 1px solid #4a4a4a !important;
     }
 
     [data-testid="stFileUploader"] label,
@@ -368,59 +403,23 @@ def main():
     [data-testid="stFileUploader"] .small,
     [data-testid="stFileUploader"] .uploadedFileName,
     [data-testid="stFileUploader"] .st-emotion-cache-1aehpvj {
-        color: var(--text-color, #606060) !important;
-        opacity: 1 !important;
-        font-family: inherit !important;
+        color: #d0d0d0 !important; /* Light text for dark mode */
     }
 
     [data-testid="stFileUploader"] button {
-        background: var(--button-bg, #ffffff) !important;
-        color: var(--button-text, #606060) !important;
-        border: 1px solid var(--border-color, #d0d4d9) !important;
-        padding: 5px 10px !important;
-        box-shadow: none !important;
-        border-radius: 4px !important;
+        background: #3a3a3a !important; /* Dark button background */
+        color: #d0d0d0 !important;
+        border: 1px solid #5a5a5a !important;
     }
 
     [data-testid="stFileUploader"]:hover,
     [data-testid="stFileUploader"] button:hover,
     [data-testid="stFileUploader"] > div > div:hover {
-        background: var(--hover-bg, #e6e8eb) !important;
-        border-color: var(--hover-border, #b0b8c1) !important;
-        color: var(--hover-text, #404040) !important;
+        background: #4a4a4a !important; /* Darker hover background */
+        border-color: #6a6a6a !important;
+        color: #ffffff !important;
     }
-
-    /* Dark mode adjustments */
-    @media (prefers-color-scheme: dark) {
-        [data-testid="stFileUploader"] > div,
-        [data-testid="stFileUploader"] > div > div {
-            background: white !important; /* Dark background for dark mode */
-            border: 1px solid #4a4a4a !important;
-        }
-
-        [data-testid="stFileUploader"] label,
-        [data-testid="stFileUploader"] .uploadInstructions,
-        [data-testid="stFileUploader"] .small,
-        [data-testid="stFileUploader"] .uploadedFileName,
-        [data-testid="stFileUploader"] .st-emotion-cache-1aehpvj {
-            color: #d0d0d0 !important; /* Light text for dark mode */
-        }
-
-        [data-testid="stFileUploader"] button {
-            background: white !important;
-            color: #d0d0d0 !important;
-            border: 1px solid #5a5a5a !important;
-        }
-
-        [data-testid="stFileUploader"]:hover,
-        [data-testid="stFileUploader"] button:hover,
-        [data-testid="stFileUploader"] > div > div:hover {
-            background: white !important;
-            border-color: #6a6a6a !important;
-            color: #ffffff !important;
-        }
-    }
-    }
+}
     </style>
     """, unsafe_allow_html=True)
     
