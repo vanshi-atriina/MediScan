@@ -356,10 +356,10 @@ def main():
 /* File Uploader Styling */
 [data-testid="stFileUploader"] > div,
 [data-testid="stFileUploader"] > div > div {
-    background: var(--background-color, #f0f2f6) !important;
-    border: 1px solid var(--border-color, #d0d4d9) !important;
+    background: #ffffff !important; /* Light background for consistency */
+    border: 1px solid #d0d4d9 !important; /* Subtle border */
     padding: 10px !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Light shadow for depth */
     border-radius: 4px !important;
 }
 
@@ -368,33 +368,33 @@ def main():
 [data-testid="stFileUploader"] .small,
 [data-testid="stFileUploader"] .uploadedFileName,
 [data-testid="stFileUploader"] .st-emotion-cache-1aehpvj {
-    color: var(--text-color, #606060) !important;
+    color: #404040 !important; /* Dark text for readability on white background */
     opacity: 1 !important;
     font-family: inherit !important;
 }
 
 [data-testid="stFileUploader"] button {
-    background: var(--button-bg, #ffffff) !important;
-    color: var(--button-text, #606060) !important;
-    border: 1px solid var(--border-color, #d0d4d9) !important;
+    background: #f8f9fa !important; /* Light gray button background */
+    color: #404040 !important; /* Dark text */
+    border: 1px solid #d0d4d9 !important;
     padding: 5px 10px !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     border-radius: 4px !important;
 }
 
 [data-testid="stFileUploader"]:hover,
 [data-testid="stFileUploader"] button:hover,
 [data-testid="stFileUploader"] > div > div:hover {
-    background: var(--hover-bg, #e6e8eb) !important;
-    border-color: var(--hover-border, #b0b8c1) !important;
-    color: var(--hover-text, #404040) !important;
+    background: #e9ecef !important; /* Slightly darker on hover */
+    border-color: #b0b8c1 !important;
+    color: #333333 !important; /* Darker text on hover */
 }
 
-/* Dark mode adjustments */
+/* Optional: Reintroduce dark mode when fixed */
 @media (prefers-color-scheme: dark) {
     [data-testid="stFileUploader"] > div,
     [data-testid="stFileUploader"] > div > div {
-        background: #2a2a2a !important; /* Dark background for dark mode */
+        background: #2a2a2a !important; /* Dark background */
         border: 1px solid #4a4a4a !important;
     }
 
@@ -403,11 +403,11 @@ def main():
     [data-testid="stFileUploader"] .small,
     [data-testid="stFileUploader"] .uploadedFileName,
     [data-testid="stFileUploader"] .st-emotion-cache-1aehpvj {
-        color: #d0d0d0 !important; /* Light text for dark mode */
+        color: #d0d0d0 !important; /* Light text */
     }
 
     [data-testid="stFileUploader"] button {
-        background: #3a3a3a !important; /* Dark button background */
+        background: #3a3a3a !important;
         color: #d0d0d0 !important;
         border: 1px solid #5a5a5a !important;
     }
@@ -415,7 +415,7 @@ def main():
     [data-testid="stFileUploader"]:hover,
     [data-testid="stFileUploader"] button:hover,
     [data-testid="stFileUploader"] > div > div:hover {
-        background: #4a4a4a !important; /* Darker hover background */
+        background: #4a4a4a !important;
         border-color: #6a6a6a !important;
         color: #ffffff !important;
     }
