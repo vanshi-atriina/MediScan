@@ -19,7 +19,11 @@ class DBCounter:
 
     def connect(self):
         try:
-            self.client = MongoClient(os.getenv('MONGO_URI'))
+            self.client = MongoClient(
+            os.getenv('MONGO_URI'),
+            tls=True,
+            tlsCAFile=certifi.where())
+
             self.db = self.client.get_database('mediscan')
             self.counter_collection = self.db['upload_counter']
             
