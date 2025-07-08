@@ -4,6 +4,8 @@ from pymongo.errors import ConnectionFailure
 import os
 from dotenv import load_dotenv
 import logging
+import certifi
+os.environ['SSL_CERT_FILE'] = certifi.where()
 
 # Load environment variables
 load_dotenv()

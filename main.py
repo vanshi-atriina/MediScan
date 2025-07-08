@@ -20,6 +20,8 @@ from app1 import (
     update_upload_count, # Add this
     UPLOAD_LIMIT 
 )
+import certifi
+os.environ['SSL_CERT_FILE'] = certifi.where()
 
 app = FastAPI(
     title="MediScan API",
