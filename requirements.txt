@@ -1,3 +1,5 @@
+fastapi
+uvicorn[standard]
 streamlit>=1.28.0
 google-generativeai>=0.3.0
 Pillow>=9.5.0
@@ -6,6 +8,8 @@ google-cloud-vision
 opencv-python-headless
 numpy
 pdf2image==1.17.0
-
-
+pandas
+PyPDF2
+pymongo
+python-multipart
 
