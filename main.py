@@ -6,6 +6,7 @@ from typing import List, Optional
 import os
 from datetime import datetime
 import tempfile
+import logging
 import json
 from app1 import (
     configure_gemini,
@@ -20,8 +21,7 @@ from app1 import (
     update_upload_count, # Add this
     UPLOAD_LIMIT 
 )
-import certifi
-os.environ['SSL_CERT_FILE'] = certifi.where()
+
 
 app = FastAPI(
     title="MediScan API",
@@ -41,14 +41,21 @@ app.add_middleware(
 # Initialize Gemini model on startup
 model = None
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+
+
 @app.on_event("startup")
 async def startup_event():
     global model
     try:
         model = configure_gemini()
-        print("✅ Gemini model initialized successfully")
+        logger.info("✅ Gemini model initialized successfully")
     except Exception as e:
-        print(f"❌ Error initializing Gemini model: {str(e)}")
+        logger.error(f"❌ Error initializing Gemini model: {str(e)}")
         raise
 
 @app.get("/")
