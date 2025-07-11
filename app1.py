@@ -26,7 +26,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('ocr_errors.log'),
+        #logging.FileHandler('ocr_errors.log'),
         logging.StreamHandler()
     ]
 )
@@ -59,7 +59,7 @@ def configure_gemini():
         raise ValueError("GEMINI_API_KEY environment variable is required")
     
     genai.configure(api_key=api_key)
-    return genai.GenerativeModel('gemini-2.0-flash-exp')
+    return genai.GenerativeModel('gemini-2.5-pro')
 
 def count_pdf_pages(file_obj):
     try:
